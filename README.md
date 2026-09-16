@@ -131,13 +131,39 @@ Move the system prompt into the messages array and delete the top level `system`
 | `TR_API_TIMEOUT` | `45` | Total cURL timeout |
 | `TR_API_CONNECT` | `10` | Connection timeout |
 
+## Secrets management
+
+On a real environment-variable host (Railway, Render, a VPS with Apache `SetEnv` or PHP-FPM `env[]`), `export AGENT_ROUTER_API_KEY=...` as shown above is all you need, `review.php` reads it straight through `getenv()`.
+
+Shared hosting, Hostinger included, usually does not expose a true environment-variable panel to PHP, so this repo ships with a fallback pattern instead. `review.php` looks for an optional file called `secrets.php` one directory above the web root:
+
+```php
+$tr_secrets_path = dirname(__DIR__) . '/secrets.php';
+if (is_readable($tr_secrets_path)) {
+    require_once $tr_secrets_path;
+}
+```
+
+To use it, create `secrets.php` as a sibling of `public_html`, not inside it, so it is never reachable by URL, with this content:
+
+```php
+<?php
+putenv('AGENT_ROUTER_API_KEY=sk-ant-your-real-key');
+putenv('AGENT_ROUTER_API_SECRET=your-signing-secret');
+```
+
+`putenv()` makes the value available to `getenv()` for the rest of the request, so no other code needs to change. If `secrets.php` is absent, the app falls back to the mock placeholder and still renders, useful for a first deploy before credentials are in place.
+
+Never commit a filled-in `secrets.php` to this repository. Keep it out of version control entirely, for example by adding it to `.gitignore`, and treat any key that has ever appeared in a screenshot, chat log or shared document as compromised, rotate it at the provider immediately.
+
 ## File map
 
 ```
 truthrouter-ai/
-├── index.php     Landing page, sticky nav, search panel, trust stats, trending grid, footer
-├── README.md
-└── review.php    Verdict engine, input security, rate limit, cache, cURL call, sanitiser, render
+├── index.php      Landing page, sticky nav, search panel, trust stats, trending grid, footer
+├── review.php     Verdict engine, input security, rate limit, cache, cURL call, sanitiser, render
+├── secrets.php    Optional. Local credentials file, never committed, see Secrets management below
+└── README.md
 ```
 
 ## How a verdict is produced
@@ -146,7 +172,11 @@ The query is sanitised, then checked against the rate limiter and the disk cache
 
 ## Deployment
 
-Any PHP 8.1 host with the cURL extension enabled. Upload both files, set the two environment variables, and confirm the system temp directory is writable so the verdict cache can persist. Behind a reverse proxy the canonical URL builder already reads `X-Forwarded-Proto`, so no extra configuration is needed for correct `https` meta tags.
+Any PHP 8.1 host with the cURL extension enabled. Upload `index.php` and `review.php` into the web root, set your credentials using whichever method your host supports (see Secrets management above), and confirm the system temp directory is writable so the verdict cache can persist. Behind a reverse proxy the canonical URL builder already reads `X-Forwarded-Proto`, so no extra configuration is needed for correct `https` meta tags.
+
+**Hostinger, step by step**
+
+Set PHP to 8.1 or higher under hPanel → Advanced → PHP Configuration. Upload `index.php` and `review.php` into `public_html` through File Manager or FTP. Create `secrets.php` one level above `public_html`, as a sibling folder, with your real credentials as shown in Secrets management. Point your domain and enable the free SSL certificate under hPanel → SSL. Visit the domain and run a search to confirm the key is picked up correctly.
 
 Clear stale results after changing providers by deleting the `truthrouter_cache` folder inside your system temp directory.
 
