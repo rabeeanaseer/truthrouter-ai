@@ -1,26 +1,34 @@
+
 <div align="center">
 
 <h1>TruthRouter AI</h1>
 
 <p><strong>Every product has a flaw. We route you to it.</strong></p>
 
-<p>An AI consumer review search engine that reads public buyer consensus and returns one <strong>Honest AI Consensus Verdict</strong>, with the real pitfalls stated before the praise.</p>
-
 <p>
-<img alt="PHP" src="https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=for-the-badge&logo=php&logoColor=white">
-<img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-3.x-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
-<img alt="cURL" src="https://img.shields.io/badge/cURL-native-073551?style=for-the-badge&logo=curl&logoColor=white">
-<img alt="License" src="https://img.shields.io/badge/License-MIT-1B39FF?style=for-the-badge">
+AI-powered product research that puts potential pitfalls before the praise.
+Get product verdicts, compare alternatives, and explore source links before buying.
 </p>
 
 <p>
-<img alt="Build" src="https://img.shields.io/badge/build-passing-22C55E?style=flat-square">
-<img alt="Dependencies" src="https://img.shields.io/badge/dependencies-zero-0E1420?style=flat-square">
-<img alt="Files" src="https://img.shields.io/badge/core%20files-2-5A6678?style=flat-square">
-<img alt="SEO" src="https://img.shields.io/badge/schema.org-structured%20data-B45309?style=flat-square">
-<img alt="Responsive" src="https://img.shields.io/badge/responsive-mobile%20first-5A6678?style=flat-square">
-<img alt="PRs" src="https://img.shields.io/badge/PRs-welcome-1B39FF?style=flat-square">
-<img alt="Maintained" src="https://img.shields.io/badge/maintained-yes-22C55E?style=flat-square">
+<img alt="React" src="https://img.shields.io/badge/React-19-149ECA?style=for-the-badge&logo=react&logoColor=white">
+<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+<img alt="Vite" src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
+<img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
+</p>
+
+<p>
+<img alt="Express" src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white">
+<img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
+<img alt="Clerk" src="https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white">
+<img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white">
+</p>
+
+<p>
+<img alt="AI provider" src="https://img.shields.io/badge/AI-xAI-0E1420?style=flat-square">
+<img alt="Package manager" src="https://img.shields.io/badge/package_manager-pnpm-F69220?style=flat-square&logo=pnpm&logoColor=white">
+<img alt="Responsive interface" src="https://img.shields.io/badge/interface-responsive-1B39FF?style=flat-square">
+<img alt="Anonymous access" src="https://img.shields.io/badge/anonymous_access-first_10_reviews-22C55E?style=flat-square">
 </p>
 
 <p><sub>A product of <strong>Novatratech SMC Private Limited</strong></sub></p>
@@ -29,186 +37,241 @@
 
 ---
 
-## Demo
+## Overview
 
-<div align="center">
+TruthRouter AI helps buyers research products before making a purchase.
 
-<!-- Drop your video here. GitHub plays MP4 and MOV inline when you drag the file
-     into a README edit box or an issue comment, then paste the generated URL below.
-     Replace the src with that URL. Keep the file under 10MB for inline playback. -->
+Enter a product name to generate an AI-powered verdict, or compare two products with a query such as:
 
-https://github.com/YOUR_USERNAME/truthrouter-ai/assets/000000/your-demo-video.mp4
+```text
+MacBook Air M4 vs Dell XPS 14
+```
 
-<sub>Searching a product, running the verdict, and a head to head comparison.</sub>
+The platform highlights potential drawbacks, explains trade-offs, and provides source links for further research.
 
-</div>
-
----
-
-## What it does
-
-TruthRouter AI takes any product name and returns a single verdict built from public buyer consensus rather than a star average. It weights long term ownership reports over launch week impressions, discounts incentivised and template reviews, and leads with the failure pattern that shows up after the return window has already closed.
-
-Type two products with `vs` and the engine switches to a head to head layout automatically, with a comparison table and a paired pitfall breakdown for each side.
+> Verdicts are AI-generated research summaries. They may contain errors, and source links do not independently verify every generated statement. Confirm important claims before purchasing.
 
 ## Features
 
-| | |
+| Feature | Description |
 |---|---|
-| **Verdict engine** | Single product and head to head comparison modes, selected automatically from the query |
-| **Comparison parser** | Detects `vs`, `versus`, `compared to`, `against`, `between` and `or`, and strips lead-ins like `which is better` |
-| **Prompt architecture** | Two full system prompts with fixed evidence rules, voice rules and output structure, built through token replacement |
-| **Pure HTML output** | The model returns styled HTML only, no markdown, no code fences, no post-processing guesswork |
-| **Output sanitiser** | Tag allow list, event handler stripping, `javascript:` and `data:` URI neutralising, forced `rel="nofollow noopener"` |
-| **Input security** | Unicode safe character allow list, length clamping, tag stripping, control character removal |
-| **Rate limiting** | Session bound sliding window, 25 requests per hour by default |
-| **Disk cache** | Six hour verdict cache keyed by query, model and mode, so repeat searches never re-bill the API |
-| **Resilient parsing** | Accepts `content` blocks, `choices[].message.content`, `output_text` and flat shapes without assuming block order |
-| **Error handling** | Every transport, timeout, 429, non-2xx, malformed JSON and empty body case renders a directed error card |
-| **SEO layer** | Organization, WebSite with SearchAction, WebPage and FAQPage structured data, canonical URLs, Open Graph and Twitter cards, dynamic per-query meta |
-| **Live trust stats** | Reads from the analytics store and degrades to deterministic daily drift when the store is cold |
-| **Accessibility** | Skip link, visible focus rings, reduced motion respected, labelled search landmarks |
+| **Product verdicts** | Generate research summaries for individual products |
+| **Product comparisons** | Compare alternatives and their potential trade-offs |
+| **Anonymous access** | Use the first 10 reviews without signing in |
+| **User accounts** | Sign in securely through Clerk |
+| **Paid plans** | Support WhatsApp-assisted purchases and administrator plan activation |
+| **Persistent quotas** | Store and enforce review allowances using PostgreSQL |
+| **xAI integration** | Generate verdicts through the server-side xAI API |
+| **Source links** | Open references for additional research |
+| **Responsive interface** | Access the platform on desktop and mobile |
+| **Vercel deployment** | Host the frontend and API together in one project |
 
-## Stack
+## Tech Stack
 
-Pure PHP 8.1 with no framework, no Composer and no build step. Tailwind CSS via CDN with an inline theme config. Native cURL for the model call. Two files, one deploy.
+| Layer | Technology |
+|---|---|
+| Frontend | React, TypeScript, Vite |
+| Styling | Tailwind CSS |
+| Backend | Express, TypeScript |
+| Database | PostgreSQL |
+| Database tooling | Drizzle ORM |
+| Authentication | Clerk |
+| AI provider | xAI |
+| Package manager | pnpm |
+| Application hosting | Vercel |
 
-## Quick start
+## Project Structure
 
-```bash
-git clone https://github.com/YOUR_USERNAME/truthrouter-ai.git
-cd truthrouter-ai
-php -S localhost:8000
-```
-
-Open `http://localhost:8000` and run a search.
-
-## Configuration
-
-TruthRouter AI ships wired to **Claude Opus 5** through an agent router endpoint, using the Anthropic Messages API shape. Set your credentials as environment variables rather than editing the source, so a key never reaches your Git history.
-
-```bash
-export AGENT_ROUTER_API_KEY="sk-ant-your-real-key"
-export AGENT_ROUTER_API_SECRET="your-signing-secret"
-```
-
-The legacy `TRUTHROUTER_API_KEY` and `TRUTHROUTER_API_SECRET` names are still read as a fallback, so older deployments keep working on upgrade.
-
-```php
-const TR_API_ENDPOINT = 'https://api.anthropic.com/v1/messages';
-const TR_API_MODEL    = 'claude-opus-5';
-const TR_API_VERSION  = '2023-06-01';
-const TR_TPL_AUTH_HEADER = 'x-api-key: {{TR_API_KEY}}';
-```
-
-The key rides in the `x-api-key` header rather than a Bearer token, and `anthropic-version` is sent alongside it inside `tr_call_consensus_api`. Swap `TR_API_ENDPOINT` for your own agent router URL if you are proxying the request rather than calling Anthropic directly, the payload shape and header names stay the same as long as the router speaks the Messages API.
-
-**Switching to OpenAI or OpenRouter instead**
-
-```php
-const TR_API_ENDPOINT = 'https://api.openai.com/v1/chat/completions';
-const TR_API_MODEL    = 'gpt-4.1';
-const TR_TPL_AUTH_HEADER = 'Authorization: Bearer {{TR_API_KEY}}';
-```
-
-Move the system prompt into the messages array and delete the top level `system` key.
-
-```php
-'messages' => [
-    ['role' => 'system', 'content' => $systemPrompt],
-    ['role' => 'user',   'content' => $userPrompt],
-],
-```
-
-### Tunables
-
-| Constant | Default | Purpose |
-|---|---|---|
-| `TR_MAX_QUERY_LEN` | `180` | Hard clamp on query length |
-| `TR_RATE_LIMIT` | `25` | Requests per session per window |
-| `TR_RATE_WINDOW` | `3600` | Rate limit window in seconds |
-| `TR_CACHE_TTL` | `21600` | Verdict cache lifetime in seconds |
-| `TR_API_TIMEOUT` | `45` | Total cURL timeout |
-| `TR_API_CONNECT` | `10` | Connection timeout |
-
-## Secrets management
-
-On a real environment-variable host (Railway, Render, a VPS with Apache `SetEnv` or PHP-FPM `env[]`), `export AGENT_ROUTER_API_KEY=...` as shown above is all you need, `review.php` reads it straight through `getenv()`.
-
-Shared hosting, Hostinger included, usually does not expose a true environment-variable panel to PHP, so this repo ships with a fallback pattern instead. `review.php` looks for an optional file called `secrets.php` one directory above the web root:
-
-```php
-$tr_secrets_path = dirname(__DIR__) . '/secrets.php';
-if (is_readable($tr_secrets_path)) {
-    require_once $tr_secrets_path;
-}
-```
-
-To use it, create `secrets.php` as a sibling of `public_html`, not inside it, so it is never reachable by URL, with this content:
-
-```php
-<?php
-putenv('AGENT_ROUTER_API_KEY=sk-ant-your-real-key');
-putenv('AGENT_ROUTER_API_SECRET=your-signing-secret');
-```
-
-`putenv()` makes the value available to `getenv()` for the rest of the request, so no other code needs to change. If `secrets.php` is absent, the app falls back to the mock placeholder and still renders, useful for a first deploy before credentials are in place.
-
-Never commit a filled-in `secrets.php` to this repository. Keep it out of version control entirely, for example by adding it to `.gitignore`, and treat any key that has ever appeared in a screenshot, chat log or shared document as compromised, rotate it at the provider immediately.
-
-## File map
-
-```
+```text
 truthrouter-ai/
-├── index.php      Landing page, sticky nav, search panel, trust stats, trending grid, footer
-├── review.php     Verdict engine, input security, rate limit, cache, cURL call, sanitiser, render
-├── secrets.php    Optional. Local credentials file, never committed, see Secrets management below
-└── README.md
+├── api/
+│   ├── index.ts                 # API entrypoint
+│   └── [...path].ts             # Catch-all API entrypoint
+├── artifacts/
+│   ├── api-server/              # Express backend
+│   └── truthrouter-web/         # React frontend
+├── lib/                         # Shared libraries and database schema
+├── .env.vercel.example          # Environment variable template
+├── .gitignore
+├── .npmrc
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── tsconfig.json
+├── vercel.json                  # Build and routing configuration
+└── VERCEL_DEPLOYMENT.md          # Detailed deployment guide
 ```
 
-## How a verdict is produced
+## Getting Started
 
-The query is sanitised, then checked against the rate limiter and the disk cache. If nothing is cached, the comparison parser decides which of the two system prompts to build. Credentials are injected into the header templates through `str_replace`, and the secret signs the prompt body with HMAC SHA-256 instead of being transmitted raw. The response is parsed by block type rather than position, passed through the tag allow list sanitiser, written to the cache and rendered inside the responsive verdict container.
+### Requirements
 
-## Deployment
+- A supported Node.js version compatible with Vite 7
+- pnpm
+- A PostgreSQL database accessible from Vercel
+- A Clerk application that you own
+- An xAI API key
 
-Any PHP 8.1 host with the cURL extension enabled. Upload `index.php` and `review.php` into the web root, set your credentials using whichever method your host supports (see Secrets management above), and confirm the system temp directory is writable so the verdict cache can persist. Behind a reverse proxy the canonical URL builder already reads `X-Forwarded-Proto`, so no extra configuration is needed for correct `https` meta tags.
+### Install dependencies
 
-**Hostinger, step by step**
+From the repository root:
 
-Set PHP to 8.1 or higher under hPanel → Advanced → PHP Configuration. Upload `index.php` and `review.php` into `public_html` through File Manager or FTP. Create `secrets.php` one level above `public_html`, as a sibling folder, with your real credentials as shown in Secrets management. Point your domain and enable the free SSL certificate under hPanel → SSL. Visit the domain and run a search to confirm the key is picked up correctly.
+```bash
+pnpm install --frozen-lockfile
+```
 
-Clear stale results after changing providers by deleting the `truthrouter_cache` folder inside your system temp directory.
+Use pnpm rather than npm or Yarn.
 
-## Roadmap
+## Environment Variables
 
-Persistent verdict store with a permalink per product. Source citation panel showing which communities fed the consensus. Regional pricing and warranty awareness. Sitemap generation from the verdict index. Verdict correction workflow with public revision history.
+Configure these variables in your Vercel project settings:
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `DATABASE_URL` | Yes | PostgreSQL connection string |
+| `SESSION_SECRET` | Yes | Stable secret for signing anonymous-access cookies |
+| `XAI_API_KEY` | Yes | Server-side xAI API key |
+| `VITE_CLERK_PUBLISHABLE_KEY` | Yes | Browser-side Clerk publishable key |
+| `CLERK_PUBLISHABLE_KEY` | Yes | Server-side Clerk publishable key |
+| `CLERK_SECRET_KEY` | Yes | Server-side Clerk secret key |
+| `ADMIN_USER_IDS` | Optional | Administrator user-ID allowlist |
+| `ADMIN_EMAILS` | Optional | Administrator email allowlist |
+
+See [`.env.vercel.example`](./.env.vercel.example) for the configuration template.
+
+### Security notes
+
+- Never commit actual credentials to GitHub.
+- Keep database credentials, xAI keys, and Clerk secret keys server-side.
+- Only intentionally public browser configuration should use the `VITE_` prefix.
+- Use a securely generated `SESSION_SECRET` and keep it stable.
+- Use your own Clerk application's production keys for production.
+- Configure your deployment domains and redirect settings in Clerk.
+
+Vercel automatically enables the application's external Clerk authentication mode.
+
+## Database Setup
+
+Provision PostgreSQL and use a pooled connection URL when available.
+
+Before running schema commands, securely set `DATABASE_URL` and confirm that it points to the intended database.
+
+Apply the application schema:
+
+```bash
+pnpm --filter @workspace/db run push
+```
+
+Review any proposed schema changes before accepting them.
+
+> Database initialization is not performed automatically during a Vercel build or API startup. The source package does not include database records or subscription data.
+
+## Deploy to Vercel
+
+### 1. Upload to GitHub
+
+If using the downloadable ZIP:
+
+1. Extract the ZIP.
+2. Open the `truthrouter-vercel` folder.
+3. Upload the folder's **contents** to your GitHub repository.
+
+`package.json` and `vercel.json` must be at the repository root.
+
+Do not upload only the ZIP file or place the application inside an unnecessary extra folder.
+
+### 2. Import the repository
+
+In Vercel:
+
+1. Create a new project.
+2. Import your GitHub repository.
+3. Leave **Root Directory** at the repository root.
+4. Use the included `vercel.json` configuration.
+
+The configured build command is:
+
+```bash
+pnpm run build:vercel
+```
+
+The frontend output directory is:
+
+```text
+artifacts/truthrouter-web/dist/public
+```
+
+### 3. Configure services
+
+Before deploying:
+
+- Add the required environment variables.
+- Initialize the PostgreSQL schema.
+- Configure Clerk for the deployment domain.
+
+The frontend and Express API run in one Vercel project. PostgreSQL, Clerk, and xAI remain external services; no separate application server is required.
+
+### 4. Verify the deployment
+
+After deployment, check:
+
+- Homepage and review routes
+- Anonymous review generation
+- Sign-in and sign-out
+- Account quota display
+- Administrator plan activation
+- Verdict generation and source links
+
+See [`VERCEL_DEPLOYMENT.md`](./VERCEL_DEPLOYMENT.md) for additional details.
+
+## How It Works
+
+1. The user submits a product or comparison query.
+2. The API determines whether the request is anonymous or authenticated.
+3. The applicable review allowance is checked and usage is reserved.
+4. The server requests a verdict from xAI.
+5. The frontend displays the result and available source links.
+6. Reserved usage is released if verdict generation fails.
+
+Paid-plan access is managed through the application's subscription and administrator activation workflow.
+
+## Account Migration
+
+Clerk user IDs identify accounts in the Vercel authentication mode.
+
+Accounts and subscriptions associated with a previous authentication system are **not automatically linked** to new Clerk accounts. Any migration must be planned separately.
 
 ## Disclaimer
 
-Verdicts are research summaries assembled from public buyer reports. They are not purchase advice. Confirm current pricing, warranty terms and regional model differences before buying. TruthRouter AI accepts no payment from manufacturers or retailers.
+TruthRouter AI provides informational product research, not a guarantee of product quality, reliability, or suitability.
 
-## License
+Before buying, confirm:
 
-Released under the MIT License. See `LICENSE` for the full text.
+- Current pricing and availability
+- Warranty and return policies
+- Regional model differences
+- Important reliability and safety claims
+
+AI-generated verdicts can be incomplete, outdated, or incorrect.
 
 ## Author
 
 <div align="center">
 
-<img alt="Author" src="https://img.shields.io/badge/Author-Rabeea%20Naseer-0E1420?style=for-the-badge">
+<img alt="Author" src="https://img.shields.io/badge/Author-Rabeea_Naseer-0E1420?style=for-the-badge">
 
-**Rabeea Naseer**
+<p><strong>Rabeea Naseer</strong></p>
 
 <p>
-<a href="https://github.com/rabeeanaseer"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-rabeeanaseer-181717?style=flat-square&logo=github&logoColor=white"></a>
-<a href="https://www.linkedin.com/in/rabeea-naseer-045b4a337/"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Rabeea%20Naseer-0A66C2?style=flat-square&logo=linkedin&logoColor=white"></a>
+<a href="https://github.com/rabeeanaseer">
+<img alt="GitHub" src="https://img.shields.io/badge/GitHub-rabeeanaseer-181717?style=flat-square&logo=github&logoColor=white">
+</a>
+<a href="https://www.linkedin.com/in/rabeea-naseer-045b4a337/">
+<img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-Rabeea_Naseer-0A66C2?style=flat-square&logo=linkedin&logoColor=white">
+</a>
 </p>
 
-</div>
+<p>A product of <strong>Novatratech SMC Private Limited</strong></p>
 
-Built and engineered by Rabeea Naseer for Novatratech SMC Private Limited. Issues, feature requests and pull requests are welcome through the GitHub profile linked above.
-
-<div align="center">
-<sub>Built and maintained by <strong>Novatratech SMC Private Limited</strong></sub>
 </div>
+````
